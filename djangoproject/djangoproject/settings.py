@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'voiceassistant_backend',
+    'corsheaders',
 
 ]
 
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -134,3 +136,35 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Allow requests from any origin
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Allow origins to only what FE hosting
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # Your React frontend's development URL
+#     "http://127.0.0.1:3000",   # Another common development URL
+#     # Add other allowed origins as needed for production
+# ]
+
+# # You can also specify other CORS settings as needed
+# CORS_ALLOW_METHODS = [
+#     "GET",
+#     "POST",
+#     "PUT",
+#     "PATCH",
+#     "DELETE",
+#     "OPTIONS",
+# ]
+
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
