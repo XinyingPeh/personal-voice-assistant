@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'voiceassistant_backend',
     'corsheaders',
-
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
