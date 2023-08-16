@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'voiceassistant_backend',
-    'corsheaders',]
+    'corsheaders'
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,26 +146,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     "http://localhost:3000",  # Your React frontend's development URL
 #     "http://127.0.0.1:3000",   # Another common development URL
 #     # Add other allowed origins as needed for production
-# ]
-
-# # You can also specify other CORS settings as needed
-# CORS_ALLOW_METHODS = [
-#     "GET",
-#     "POST",
-#     "PUT",
-#     "PATCH",
-#     "DELETE",
-#     "OPTIONS",
-# ]
-
-# CORS_ALLOW_HEADERS = [
-#     "accept",
-#     "accept-encoding",
-#     "authorization",
-#     "content-type",
-#     "dnt",
-#     "origin",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
 # ]
