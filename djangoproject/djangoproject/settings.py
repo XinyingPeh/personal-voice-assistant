@@ -56,16 +56,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3002',  # Example: Your React frontend's URL
-]
+
 
 ROOT_URLCONF = 'djangoproject.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'voiceassistant_frontend/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'voiceassistant_frontend/build'), os.path.join(BASE_DIR, 'voiceassistant_backend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
