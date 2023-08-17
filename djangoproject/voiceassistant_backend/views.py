@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth import get_user_model
 from django.contrib import messages
 
 # Load home page
@@ -24,4 +23,6 @@ def home(request):
 
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, 'You are now logged out.')
+    return redirect('home')
