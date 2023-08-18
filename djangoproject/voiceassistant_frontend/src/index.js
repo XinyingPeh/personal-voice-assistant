@@ -1,31 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import { CookiesProvider } from 'react-cookie';
-
-import AuthProvider from './components/auth/AuthProvider'
-import AuthenticatedOnly from './components/auth/AuthenticatedOnly';
-import GuestOnly from './components/auth/GuestOnly';
-
-import HomePage from './components/homepage';
-
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <HomePage />,
-    }
-]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CookiesProvider>
-        <AuthProvider>
-            <RouterProvider router={router} />
-        </AuthProvider>
-    </CookiesProvider>
+    <App />
   </React.StrictMode>
 );
 

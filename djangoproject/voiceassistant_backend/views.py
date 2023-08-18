@@ -6,7 +6,6 @@ from rest_framework.authtoken.models import Token
 from django.http import JsonResponse
 
 # Load home page
-
 def home(request):    
     if request.method == 'POST':
         username = request.POST.get('username')   
@@ -50,4 +49,4 @@ def register_user(request):
     return render(request, 'register.html', {'form': form})
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {})
