@@ -62,7 +62,10 @@ ROOT_URLCONF = 'djangoproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'voiceassistant_frontend/build'), os.path.join(BASE_DIR, 'voiceassistant_backend/templates')],
+        'DIRS': [
+                 os.path.join(BASE_DIR, 'voiceassistant_frontend/build'),
+                 os.path.join(BASE_DIR, 'voiceassistant_backend/templates')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,6 +115,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -129,7 +139,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'voiceassistant_frontend/build/static')
