@@ -2,25 +2,28 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from rest_framework.authtoken.models import Token
+from django.http import JsonResponse
 
 # Load home page
+
 def home(request):    
-    # check if logged in
     if request.method == 'POST':
         username = request.POST.get('username')   
         password = request.POST.get('password')
 
-        # Authenticate user
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, 'You are now logged in.')
-            return redirect('home')
+            token, created = Token.objects.get_or_create(user=user)  
+            return JsonResponse({'token': token.key})
         else:
             messages.error(request, 'Invalid login credentials. Please try again.')
-            return redirect('home')
-    else:
-        return render(request, 'home.html', {})
+
+    if request.user.is_authenticated:
+        return redirect('home')  # Redirect to a different page for authenticated users
+
+    return render(request, 'home.html', {})
 
 
 def logout_user(request):
@@ -45,3 +48,6 @@ def register_user(request):
         return render(request, 'register.html', {'form': form})
 
     return render(request, 'register.html', {'form': form})
+
+def index(request):
+    return render(request, 'index.html')
