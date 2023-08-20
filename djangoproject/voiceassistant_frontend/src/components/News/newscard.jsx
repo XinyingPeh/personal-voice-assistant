@@ -3,10 +3,8 @@ import {
   CardActions,
   CardActionArea,
   CardContent,
-  CardMediaClassKey,
   Button,
   Typography,
-  CardMedia,
   CardHeader,
   Box,
 } from "@mui/material";
@@ -25,19 +23,23 @@ export default function NewsCard({
               width: 350,
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 350 },
-              margin: 'auto'
+              margin: "auto",
             }}
-            
             alt={title}
-            src={urlToImage}
+            src={
+              urlToImage ||
+              "https://i.pinimg.com/originals/26/91/f2/2691f2fa1a0f078f5f274edf7fea6763.png"
+            }
           />
           <CardHeader title={title} />
           <div>
-            <Typography variant="body2" color="textSecondary" component="h2">
-              {new Date(publishedAt).toDateString()}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="h2">
-              {source.name}
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              sx={{ paddingLeft: "15px" }}
+            >
+              {new Date(publishedAt).toDateString()} | {source.name}
             </Typography>
           </div>
 
@@ -47,15 +49,19 @@ export default function NewsCard({
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+          }}
+        >
           <Button size="small" color="primary">
-            Learn More
+            Read More
           </Button>
-          <Typography
-            variant="h5"
-            color="textSecondary"
-            component="h2"
-          ></Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {i + 1}
+          </Typography>
         </CardActions>
       </Card>
     </>
