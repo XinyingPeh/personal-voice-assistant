@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Applications from "./applications";
 import alanBtn from "@alan-ai/alan-sdk-web";
-import ApplicationCards from "./applications";
+import ApplicationCards from "./applicationcards";
+import Newscards from "./News/newscards";
 
 
 export default function Dashboard() {
@@ -23,6 +23,7 @@ export default function Dashboard() {
   return (
     <>
       <ApplicationCards />
+      <Newscards articles={newsArticles} />
     </>
   );
 }
