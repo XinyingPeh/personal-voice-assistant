@@ -14,7 +14,14 @@ export default function NewsCard({
 }) {
   return (
     <>
-      <Card>
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
         <CardActionArea>
           <Box
             component="img"
@@ -39,7 +46,7 @@ export default function NewsCard({
               component="p"
               sx={{ paddingLeft: "15px" }}
             >
-              {new Date(publishedAt).toDateString()} | {source.name}
+              {new Date(publishedAt).toDateString()} from {source.name}
             </Typography>
           </div>
 
