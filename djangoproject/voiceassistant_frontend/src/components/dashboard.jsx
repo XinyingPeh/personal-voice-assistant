@@ -7,7 +7,7 @@ import Newscards from "./News/newscards";
 export default function Dashboard() {
     // Set state
     const [ newsArticles, setNewsArticles ] = useState([]);
-
+    const [activeArticle, setNewsArticle] = useState(-1);
     // Alan ai voice command button
     useEffect(() => {
         alanBtn({
@@ -15,6 +15,9 @@ export default function Dashboard() {
             onCommand: ({ command, articles }) => {
                 if (command === 'newHeadlines') {
                     setNewsArticles(articles);
+                    setNewsArticle(-1);
+                } else if (command === 'highlight') {
+                    setNewsArticle((prevActiveArticle) => prevActiveArticle + 1); 
                 }
             }
         })
@@ -23,7 +26,7 @@ export default function Dashboard() {
   return (
     <>
       <ApplicationCards />
-      <Newscards articles={newsArticles} />
+      <Newscards articles={newsArticles} activeArticle={activeArticle} />
     </>
   );
 }
