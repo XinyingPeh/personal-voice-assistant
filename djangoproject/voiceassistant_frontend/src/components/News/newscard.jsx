@@ -13,7 +13,19 @@ import {
 
 
 export default function NewsCard({ article: { description, publishedAt, source, title, url, urlToImage }, i, activeArticle,}) {
-  
+  const [elementRefs, setElementRefs] = useState([]);
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+    setElementRefs((refs) => Array(20).fill().map((_, j) => refs[j] || createRef()));
+  }, []);
+
+  useEffect(() => {
+    if (i === activeArticle && elementRefs[activeArticle]) {
+      scrollToRef(elementRefs[activeArticle]);
+    }
+  }, [i, activeArticle, elementRefs]);
 
   return (
     <>
@@ -25,6 +37,7 @@ export default function NewsCard({ article: { description, publishedAt, source, 
           height: "100%",
           borderBottom: activeArticle === i ? "5px solid blue" : "none",
         }}
+        ref={elementRefs[i]}
       >
         <CardActionArea>
           <Box
