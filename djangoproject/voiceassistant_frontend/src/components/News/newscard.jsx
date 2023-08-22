@@ -1,3 +1,4 @@
+import { useState, useEffect, createRef } from "react";
 import {
   Card,
   CardActions,
@@ -8,10 +9,12 @@ import {
   CardHeader,
   Box,
 } from "@mui/material";
-export default function NewsCard({
-  article: { description, publishedAt, source, title, url, urlToImage },
-  i,
-}) {
+
+
+
+export default function NewsCard({ article: { description, publishedAt, source, title, url, urlToImage }, i, activeArticle,}) {
+  
+
   return (
     <>
       <Card
@@ -20,6 +23,7 @@ export default function NewsCard({
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
+          borderBottom: activeArticle === i ? "5px solid blue" : "none",
         }}
       >
         <CardActionArea>
@@ -73,4 +77,4 @@ export default function NewsCard({
       </Card>
     </>
   );
-}
+};
