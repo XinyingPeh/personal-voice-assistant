@@ -12,7 +12,7 @@ import {
 
 
 
-export default function NewsCard({ article: { description, publishedAt, source, title, url, urlToImage }, i, activeArticle,}) {
+export default function NewsCard({ article: { description, publishedAt, source, title, url, urlToImage }, activeArticle, i }) {
   const [elementRefs, setElementRefs] = useState([]);
   const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
 
@@ -39,7 +39,7 @@ export default function NewsCard({ article: { description, publishedAt, source, 
         }}
         ref={elementRefs[i]}
       >
-        <CardActionArea>
+        <CardActionArea href={url} target="_blank">
           <Box
             component="img"
             sx={{
