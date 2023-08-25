@@ -80,7 +80,7 @@ export default function NewsCard({ article: { description, publishedAt, source, 
             alignItems: "flex-end",
           }}
         >
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" href={url}>
             Read More
           </Button>
           <Typography variant="body2" color="textSecondary" component="p">
