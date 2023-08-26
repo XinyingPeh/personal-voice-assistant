@@ -1,5 +1,5 @@
 import NewsCard from "./newscard";
-import { Grow, Grid, Typography } from "@mui/material";
+import { Grow, Grid } from "@mui/material";
 
 export default function Newscards({ articles, activeArticle }) {
   return (
