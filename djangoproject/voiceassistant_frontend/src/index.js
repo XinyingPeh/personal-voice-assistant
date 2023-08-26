@@ -2,30 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { CookiesProvider } from "react-cookie";
-
-// import AuthProvider from "./components/auth/AuthProvider";
-// import AuthenticatedOnly from "./components/auth/AuthenticatedOnly";
-// import GuestOnly from "./components/auth/GuestOnly";
+import { BrowserRouter } from 'react-router-dom';
 
 import Dashboard from "./components/dashboard.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Dashboard />,
-  },
-]);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <CookiesProvider>
-        {/* <AuthProvider> */}
-            <RouterProvider router={router} />
-        {/* </AuthProvider> */}
-      </CookiesProvider>
+    <BrowserRouter>
+      <Dashboard />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
