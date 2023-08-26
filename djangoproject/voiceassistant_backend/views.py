@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
 from rest_framework.authtoken.models import Token
 from django.http import JsonResponse
 
@@ -20,7 +21,7 @@ def home(request):
             messages.error(request, 'Invalid login credentials. Please try again.')
 
     if request.user.is_authenticated:
-        return redirect('home')  # Redirect to a different page for authenticated users
+        return redirect('dashboard')  # Redirect to a different page for authenticated users
 
     return render(request, 'home.html', {})
 
@@ -48,5 +49,6 @@ def register_user(request):
 
     return render(request, 'register.html', {'form': form})
 
-def index(request):
-    return render(request, 'index.html', {})
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html', {})
