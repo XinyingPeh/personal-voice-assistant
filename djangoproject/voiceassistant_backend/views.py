@@ -16,7 +16,7 @@ def home(request):
         if user is not None:
             login(request, user)
             token, created = Token.objects.get_or_create(user=user)  
-            return JsonResponse({'token': token.key})
+            return redirect('dashboard')
         else:
             messages.error(request, 'Invalid login credentials. Please try again.')
 
