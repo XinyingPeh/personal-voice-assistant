@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# See https://docs.djangoproject.copython manage.py check --deploym/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -155,9 +155,16 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-# Allow origins to only what FE hosting
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",  # Your React frontend's development URL
-#     "http://127.0.0.1:3000",   # Another common development URL
-#     # Add other allowed origins as needed for production
-# ]
+# Only allow access on HTTPS
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+SECURE_HSTS_PRELOAD=True
+SECURE_SSL_REDIRECT = True
+
+# Secure session cookie
+SESSION_COOKIE_SECURE=True
+
+# Secure CSRF cookie
+
+CSRF_COOKIE_SECURE=True
+
