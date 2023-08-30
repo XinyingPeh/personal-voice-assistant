@@ -1,13 +1,37 @@
 {
-    "builds": [{
-        "src": "djangoproject/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "djangoproject/wsgi.py"
+    "builds": [
+      {
+        "src": "voiceassistant_frontend/build",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "voiceassistant_frontend/build" },
+        "env": {
+          "REACT_APP_ALAN_KEY": "REACT_APP_ALAN_KEY"
         }
+      },
+      {
+        "src": "voiceassistant_backend/",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.9",
+          "env": {
+            "DB_NAME": "DB_NAME",
+            "DB_USER": "DB_USER",
+            "DB_PASSWORD": "DB_PASSWORD",
+            "DB_HOST": "DB_HOST",
+            "DB_PORT": "DB_PORT"
+          }
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "voiceassistant_frontend/index.html"
+      },
+      {
+        "src": "/dashboard",
+        "proxy": "voiceassistant_backend:8000/dashboard"
+      }
     ]
-}
+  }
