@@ -1,13 +1,13 @@
 {
+    "builds": [{
+        "src": "djangoproject/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "voiceassistant_frontend/index.html"
-      },
-      {
-        "src": "/dashboard",
-        "proxy": "voiceassistant_backend:8000/dashboard"
-      }
+        {
+            "src": "/(.*)",
+            "dest": "djangoproject/wsgi.py"
+        }
     ]
-  }
-  
+}
