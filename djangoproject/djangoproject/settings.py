@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -116,11 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # REST Framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.TokenAuthentication',
+#     ),
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -156,10 +156,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Only allow access on HTTPS
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS=True
-SECURE_HSTS_PRELOAD=True
-SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 31536000
+# SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+# SECURE_HSTS_PRELOAD=True
+# SECURE_SSL_REDIRECT = True
 
 # Secure session cookie
 SESSION_COOKIE_SECURE=True
