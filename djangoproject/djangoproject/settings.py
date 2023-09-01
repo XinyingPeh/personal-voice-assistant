@@ -143,6 +143,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'voiceassistant_frontend/build/static')
 ]
 
+STATICFILES_MIMETYPES = {
+    '.js': 'application/javascript',
+    '.css': 'text/css',
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
