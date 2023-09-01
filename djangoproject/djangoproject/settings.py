@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='INTERNAL_DB_URL',
+        default=os.environ['INTERNAL_DB_URL'],
         conn_max_age=600
     )
 }
