@@ -7,7 +7,8 @@ This a personalised web application created using Django and React where user ca
 - Django (Include built in security features for hashing for registration, secured login, sessions etc)
 - React
 - PostgreSQL (Originally using mySQL. As hosting platform, Render provides better integration of free PostgreSQL, mySQL has been replaced)
-- Alan AI (For speech recognition) SDK
+- Alan AI (For speech recognition) SDK (Got 12k + free interactions)
+- News API (100 requests per day)
 - MUI, Bootstrap, Gestalt (For UI)
 
 ### User story
@@ -27,8 +28,17 @@ This a personalised web application created using Django and React where user ca
 - Less compatiable choise of Database on Render hosting platform
 - Failed attempt to deploy on Vercel (better at serving static files)
 
-### Demo
-www.youtube.com
+### Future improvements
+- Can store some data like favourite items on database in future (Free Postgresql on has 1gb from render)
+- Integreate more mini apps
+- Make ai bot more talkative and interactive
+
+
+### Demo video
+To be updated
+
+### Live site
+https://personal-voice-assistant-thui.onrender.com/
 
 ### Wireframe 
 ![reg](image.png)
