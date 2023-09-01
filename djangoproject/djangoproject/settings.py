@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dotenv
 dotenv.load_dotenv()
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,14 +86,11 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
-    }
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='INTERNAL_DB_URL',
+        conn_max_age=600
+    )
 }
 
 
