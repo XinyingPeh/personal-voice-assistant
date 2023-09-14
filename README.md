@@ -4,7 +4,7 @@
 This a personalised web application created using Django and React where user can interact with the mini app using AI voice bot. In this case, a news mini app is created on dashboard for user to search news and read news headlines with the help of voice command. User can also go hands free when the ai voice read the headlines of news article, and scroll along the page highlighting the article that is being read. Integration of music application and AIGC chatbots are also are possible in this application.
 
 ### Teachnologies used
-- Django (Include built in security features for hashing for registration, secured login, sessions etc)
+- Django (Include built in security features for hashing of passwords, registration, secured login, sessions etc)
 - React
 - PostgreSQL (Originally using mySQL. As hosting platform, Render provides better integration of free PostgreSQL, mySQL has been replaced)
 - Alan AI (For speech recognition) SDK (Got 12k + free interactions)
